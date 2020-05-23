@@ -41,4 +41,11 @@ def browser(browser_opt):
 def admin_product_page(browser):
     page = AdminProductPage(browser)
     page.open()
+    page.login_admin()
     return page
+
+@pytest.fixture()
+def setup(admin_product_page):
+    if not admin_product_page.is_product_in_tab(p_name='Mouse'):
+        admin_product_page.add_new_product(p_name='Mouse', m_tag='pereferi')
+
