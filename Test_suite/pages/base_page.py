@@ -19,6 +19,14 @@ class BasePage:
         return WebDriverWait(self.browser, time).until(
             EC.visibility_of_all_elements_located(locator))
 
+    def is_element_present(self, locator, time=5):
+        try:
+            wait = WebDriverWait(self.browser, time).until(
+                EC.presence_of_all_elements_located(locator))
+            return True
+        except TimeoutException:
+            return False
+
     def open(self):
         return self.browser.get(self.base_url)
 

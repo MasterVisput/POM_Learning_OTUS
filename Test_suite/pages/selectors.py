@@ -37,12 +37,15 @@ class DashboardPageSelectors:
     LOGOUT_LINK = (By.CSS_SELECTOR, '.hidden-xs')
     CATALOG_LINK = (By.CSS_SELECTOR, '[href="#collapse1"]')
     PRODUCT_LINK = (By.CSS_SELECTOR, '#collapse1 > li:nth-child(2)')
+    CATEGORIES_LINK = (By.CSS_SELECTOR, '#collapse1 > li:nth-child(1) > a')
     PRODUCT_TAB = (By.CSS_SELECTOR, 'tbody tr')
+    CATEGORIES_TAB = (By.CSS_SELECTOR, '.table-responsive tr')
     ADD_NEW = (By.CSS_SELECTOR, '[data-original-title="Add New"]')
     DELETE = (By.CSS_SELECTOR, '[data-original-title="Delete"]')
     PRODUCT_NAME_FIELD = (By.CSS_SELECTOR, '#input-name')
     FILTER_BUTTON = (By.CSS_SELECTOR, '#button-filter[type="button"]')
     DASHBOARD_LINK = (By.CSS_SELECTOR, '#menu-dashboard')
+    SUCCESS_ALERT = (By.CSS_SELECTOR, '.alert-success')
 
 
 class AddNewProductCartSelectors:
@@ -55,3 +58,6 @@ class AddNewProductCartSelectors:
 
     DATA_TAB = (By.CSS_SELECTOR, '[href="#tab-data"]')
     MODEL = (By.CSS_SELECTOR, '[name="model"]')
+
+class CategoriesPageSelectors:
+    REBUILD_BUTTON = (By.CSS_SELECTOR, '[data-original-title="Rebuild"]')

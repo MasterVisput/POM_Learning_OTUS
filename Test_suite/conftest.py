@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
 
 from Test_suite.pages.admin_product_page import AdminProductPage
+from Test_suite.pages.admin_categories_page import AdminCategoriesPage
 
 
 def pytest_addoption(parser):
@@ -45,7 +46,17 @@ def admin_product_page(browser):
     return page
 
 @pytest.fixture()
-def setup(admin_product_page):
+def setup_product_page(admin_product_page):
     if not admin_product_page.is_product_in_tab(p_name='Mouse'):
         admin_product_page.add_new_product(p_name='Mouse', m_tag='pereferi')
+
+
+@pytest.fixture()
+def admin_categories_page(browser):
+    page = AdminCategoriesPage(browser)
+    page.open()
+    page.login_admin()
+    page.go_to_categories()
+    return page
+
 
